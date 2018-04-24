@@ -1,0 +1,53 @@
+<div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <label for="{{ form.subject.id_for_label }}">request_status</label>
+    {{ form.request_status }}
+</div>
+
+
+<div >
+    <label class="col-2" for="{{ form.subject.id_for_label }}">Opportunity_name:</label>
+    <span class="col" >{{ form.Opportunity_name }}</span>
+</div>
+
+
+<div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <label for="{{ form.subject.id_for_label }}">jurisdiction</label>
+    {{ form.jurisdiction }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <label for="{{ form.subject.id_for_label }}">Technical Manager</label>
+    {{ form.Technical_Manager }}
+</div>
+
+
+<div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <label for="{{ form.subject.id_for_label }}">contact name</label>
+    {{ form.contact_name }}
+</div>
+
+
+
+
+
+{#<div class="row dropdown">#}
+{#    <label for="technical_manager" class="col-md-2 control-label text-secondary">Technical Manager</label>#}
+{#    <select class=" col-md-2 btn-sm" id="customer_type" name="technical_manager">#}
+{#        {%for manager_name in technical_managers%}#}
+{#            <option value="{{manager_name.id}}">{{manager_name}}</option>#}
+{#        {%endfor%}#}
+{#    </select>#}
+{#</div>#}
+
+{#<div class="row dropdown">#}
+{#    <label for="jurisdiction" class="col-md-2 control-label text-primary">jurisdiction</label>#}
+{#    <select class="col-md-2 btn-sm" id="customer_type" name="jurisdiction">#}
+{#        {%for jurisdiction in jurisdictions%}#}
+{#            <option value="{{jurisdiction.id}}">{{jurisdiction}}</option>#}
+{#        {%endfor%}#}
+{#    </select>#}
+{#</div>#}

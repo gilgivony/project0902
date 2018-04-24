@@ -1,0 +1,31 @@
+{#{% for field in form %}#}
+{#    <div class="form=group">#}
+{#        <div class="col-sm-offset-2 col-sm-10">#}
+{#            <span class="text-danger small">{{ field.errors }}</span>#}
+{#        </div>#}
+{#        <label class="control-label col-sm-2">{{ field.label_tag }}</label>#}
+{#        <div class="col-sm-10">{{ field }}</div>#}
+{#    </div>#}
+{#{% endfor %}#}
+
+{% include "floppyforms/input.html" %}
+
+<div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <label for="{{ form.work_day_for_label }}">Date</label>
+    {{ form.work_day }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <label for="{{ form.user_comment_for_label }}">Reason</label>
+    {{ form.user_comment }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <label for="{{ form.hours_for_label }}">Hours</label>
+    {{ form.hours }}
+</div>
+
+

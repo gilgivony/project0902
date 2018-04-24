@@ -1,0 +1,14 @@
+{% extends 'form/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block body %}
+
+    <div class="container">
+        <form class="form-horizontal- " action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'form/request-template.html' %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

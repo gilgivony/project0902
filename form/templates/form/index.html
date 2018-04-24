@@ -1,0 +1,11 @@
+{% extends 'form/base.html' %}
+
+{% block body %}
+    <h1>Here are the opened requests </h1>
+
+    <ul>
+        {% for opportunity in object_list %}
+            <li><a href="/form/{{ opportunity.id }}" >{{ opportunity.Opportunity_name }} ---  {{ opportunity.jurisdiction }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

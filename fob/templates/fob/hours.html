@@ -1,0 +1,101 @@
+
+
+<p id="demo"></p>
+{#<button id="ok-buttun">OK</button>#}
+
+{% extends 'fob/base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+    <h1>FOB Hours</h1>
+
+    <h2>{{ worker }}: {{ Month }}  {{ year }}</h2>
+    <table id="myTable2" class="table table-hover table-sm a">
+        <thead>
+        <tr class="font-weight-bold">
+            <td>Days in office</td>
+            <td align="center">{{ FOB_days }} </td>
+{#            <td>{{ total_minutes_user }} user hours</td>#}
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr class="font-weight-bold" align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td data-toggle="tooltip" data-placement="top" title="Total hours based on FOB"></td>
+            <td data-toggle="tooltip" data-placement="top" title="Total hours based on FOB + ADP">{{ reported_hours }} </td>
+            <td data-toggle="tooltip" data-placement="top" title="Total hours based on Business Portal">{{ BP_HOURS }} </td>
+        </tr>
+        <tr>
+
+            <th>Date</th>
+            <th data-toggle="tooltip" data-placement="top" title="First Check-in of the day">First Check-in</th>
+            <th data-toggle="tooltip" data-placement="top" title="Last Check-out of the day">Last Check-out</th>
+            <th data-toggle="tooltip" data-placement="top" title="Gross hours at work">Total</th>
+            <th data-toggle="tooltip" data-placement="top" title="Net hours at work (after deduction of 30 minutes)">Net office Hours</th>
+            <th data-toggle="tooltip" data-placement="top" title="Hours from FOB, ADP and OoO hours">Hours Reported</th>
+            <th data-toggle="tooltip" data-placement="top" title="Hour reported in Business Portal (Billable and Non-billable)">BP Hours</th>
+            <th>Comments </th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {% for objects in object_list %}
+{#        {% for objects in object_list reversed %}#}
+            <tr>
+                <td id="Date" class="Bomba">{{ objects.work_day|date:'d-m-Y D'}}</td>
+                {% if objects.first_entry %}
+                    <td align="center">{{ objects.first_entry }}</td>
+                {% else %}
+                    <td>&nbsp; </td>
+                {% endif %}
+
+                {% if objects.last_entry %}
+                    <td align="center">{{ objects.last_entry }}</td>
+                {% else %}
+                    <td>&nbsp; </td>
+                {% endif %}
+
+                {% if objects.gross_time_at_work %}
+                    <td align="center">{{ objects.gross_time_at_work }}</td>
+                {% else %}
+                    <td>&nbsp; </td>
+                {% endif %}
+
+                {% if objects.net_time_at_work %}
+                    <td align="center">{{ objects.net_time_at_work }}</td>
+                {% else %}
+                    <td>&nbsp; </td>
+                {% endif %}
+
+                {% if objects.time_reported %}
+                    <td align="center" class="font-weight-bold">{{ objects.time_reported }}</td>
+                {% else %}
+                    <td>&nbsp; </td>
+                {% endif %}
+
+                {% if objects.BP_hours %}
+                    <td align="center">{{ objects.BP_hours }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+
+                {% if objects.adp_comments %}
+                    <td align="center">{{ objects.adp_comments }}</td>
+                {% else %}
+                    <td>&nbsp; </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script src="{% static 'fob/js/script1.js' %}"></script>
+{% endblock %}
+

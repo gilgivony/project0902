@@ -1,0 +1,27 @@
+h1 {
+    color: blue;
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+
+/*Table header*/
+.table th {
+   text-align: center;
+    background-color: red;
+    color: white;
+}
+
+.table {
+            border-radius: 5px;
+            width: 80%;
+            margin: 0px auto;
+            float: none;
+            align:"center";
+}
+
+.bla-bla {
+    color: green;
+    font-weight: bold;
+}
